@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <title>Read More Page</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: rgb(17, 23, 34);
+      opacity: 0; 
+      animation: slide-in 3s ease-in-out forwards;
+    }
+
+    @keyframes slide-in {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }}
+    #navbar {
+      background-color: rgb(17, 23, 34);
+      color: #fff;
+      font-size: 15px;
+      padding: 20px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+
+    #navbar a {
+      color: #fff;
+      text-decoration: none;
+      margin-right: 20px;
+      transition: all 0.3s ease;
+    }
+
+    #navbar a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      padding:12px;
+      border-radius: 5px;
+    }
+
+    
+
+    #logo {
+      float: left;
+      margin-right: 40px;
+      color: #fff;
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    #content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: 20px;
+      margin-left: 55px;
+      color: #766fe7;
+      animation-delay: 3s; 
+    }
+
+    #content-box {
+      display: flex;
+      flex-direction: row;
+      margin-top: 20px;
+      padding: 10px;
+      margin-left: 0px;
+      margin-right: 55px;
+      background-color: black;
+      animation-delay: 3s; 
+    }
+
+    #content-box video {
+      width: 300px;
+      height: auto;
+      margin-left: 20px;
+      margin-top: 115px;
+      margin-bottom: 13%;
+      animation-delay: 6s; 
+    }
+
+    h1 {
+      margin-top: 5%;
+      margin-bottom: 0px;
+      font-size: 54px;
+      animation-delay: 3s; 
+    }
+
+    h2 {
+      color: white;
+      animation-delay: 5s; 
+    }
+
+    p {
+      color: white;
+      margin-top: 0px;
+      font-size: 19px;
+      animation-delay: 3s; 
+    }
+
+    #remaining-content {
+      display: none;
+      color: white;
+      margin-top: 20px;
+      filter: blur(2px);
+      animation-delay: 6s; 
+    }
+
+    #read-more {
+      position: fixed;
+      bottom: 20px;
+      right: 60%;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 15px;
+      text-decoration: none;
+      z-index: 9999;
+    }
+
+    #read-more:hover {
+      color: #766fe7;
+    }
+
+    .blur-effect {
+      filter: blur(5px);
+    }
+
+    #content-box iframe {
+      margin-top:10%;
+    }
+
+    #countdown span {
+    color: white; 
+    font-weight: lighter;
+    font-size: 20px;
+    }
+
+    #countdown {
+      position: absolute;
+      top: 15%;
+      right: 5%;
+      transform: translateX(-50%);
+      background-color: rgb(17, 23, 34);
+      color: #766fe7;
+      font-weight: bold;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 30px;
+}
+#content-text a {
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+#content-text a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #766fe7;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 1080px) {
+      h1 {
+        font-size: 26px;
+        margin-top: 10%;
+        margin-bottom: 0px;
+      }
+
+      p {
+        font-size: 13px;
+      }
+      h2 {
+      color: white;
+      font-size: 18px;
+    }
+    
+      #content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: 15px;
+      margin-left: 10px;
+      color: #766fe7;
+    }
+
+
+      #content-box video {
+        max-width: 100%;
+        height: auto;
+        margin-top: 10px;
+    margin-bottom: 10px;
+      }
+
+      #read-more {
+        position: absolute;
+      bottom: 15px;
+      right: 45%;
+      padding: 15px 15px;
+      font-size: 15px;
+      }
+
+      #countdown {
+        top: 11%;
+        right: 0px;
+        padding: 8px 0px;
+        font-size: 20px;
+      }
+      #countdown span {
+    color: white; 
+    font-weight: lighter;
+    font-size: 15px;
+    }
+    #content-box {
+    flex-direction: column;
+    align-items: center;
+    max-width: 90%;
+  }
+
+    #content-text {
+    text-align: center;
+    margin-top: 10px;
+    }
+  }
+  
+
+  </style>
+</head>
+<body>
+  <div id="navbar">
+    <div id="logo">DEBSOC</div>
+    <a href="https://thedebatingsociety.com/">Home</a>
+    <a href="https://thedebatingsociety.com/community/">Community</a>
+    <a href="https://thedebatingsociety.com/membership/">Membership</a>
+  </div>
+  
+  </div>
+
+  <div id="content">
+    <!-- Your read more content goes here -->
+    <h1>Read More</h1>
+    <p>Powered by <b>The Times of India</b></p>
+    <div id="content-box">
+      <div id="content-text">
+        <h2>What is generative AI, and why is it suddenly everywhere?</h2>
+        <br><br>
+        <p>Even amidst the most dismal tech-turndown, Generative AI is creating waves in the Silicon Valley by making it possible for anyone to create new, original illustrations and text by simply sending a few instructions to a computer program.<br><br> Beginning in January 2021, advances in AI research resulted in a slew of deep-learning models capable of generating original images from simple text prompts, effectively extending the human imagination.In 2022, Meta pushed releases of both Blenderbot and Cicero, while OpenAI ended the year with a bang with the release of ChatGPT.<span id="blurred-text" class="blur-effect"><br><br>Generative AI has already created a paradigm shift and is here to stay but like any other automated systems trained on historical data and internet images, it also comes with risks that have yet not been resolved.It’ll be interesting to see how this technology progresses in the coming time.<br><br><br><a href="mcq.html">Click here to take a test</a></span></p>
+        <div id="remaining-content">
+          <p></p>
+        </div>
+      </div>
+      <div id="read-more">
+        <a onclick="showRemainingContent(event)"><u>Read More</u></a>
+      </div>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/SVcsDDABEkM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+  <script>
+    window.addEventListener('DOMContentLoaded', function() {
+      var remainingContent = document.getElementById("remaining-content");
+      var blurredText = document.getElementById("blurred-text");
+      var readMoreButton = document.getElementById("read-more");
+      var contentVisible = false;
+      var countdownElement = document.createElement('div');
+      countdownElement.id = 'countdown';
+      document.body.appendChild(countdownElement);
+
+      function updateCountdown() {
+        var targetDate = new Date('2023-06-30'); // Set your target date here
+        var now = new Date();
+        var timeRemaining = targetDate - now;
+
+        if (timeRemaining <= 0) {
+          countdownElement.textContent = "Timer expired!";
+          return;
+        }
+
+        var hours = Math.floor(timeRemaining / (1000 * 60 * 60 ));
+        var minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+        var formattedTime = hours.toString().padStart(2, '0') + ':' +
+                            minutes.toString().padStart(2, '0') + ':' +
+                            seconds.toString().padStart(2, '0') ;
+
+        var leftSpan = document.createElement('span');
+        leftSpan.textContent = ' left';
+
+        var preparationSpan = document.createElement('span');
+    preparationSpan.textContent = 'Preparation Time';
+                           
+
+    countdownElement.innerHTML = formattedTime;
+    countdownElement.appendChild(leftSpan);
+    countdownElement.appendChild(document.createElement('br')); // Add a line break
+    countdownElement.appendChild(preparationSpan);
+
+      }
+
+      function showRemainingContent(event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        if (!contentVisible) {
+          remainingContent.style.display = "block";
+          blurredText.classList.remove("blur-effect");
+          readMoreButton.style.display = "none";
+          document.body.style.overflow = "scroll";
+          contentVisible = true;
+
+          window.scrollTo({
+            top: document.body.scrollHeight,
+            behavior: "smooth"
+          });
+        } else {
+          remainingContent.style.display = "none";
+          blurredText.classList.add("blur-effect");
+          readMoreButton.style.display = "block";
+          document.body.style.overflow = "hidden";
+          contentVisible = false;
+        }
+      }
+
+      updateCountdown();
+
+      setInterval(updateCountdown, 1000);
+
+      readMoreButton.addEventListener('click', showRemainingContent);
+    });
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+  <title>MCQ Test Page</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: rgb(17, 23, 34);
+      opacity: 0; 
+      animation: slide-in 3s ease-in-out forwards;
+    }
+
+    @keyframes slide-in {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    #navbar {
+      background-color: rgb(17, 23, 34);
+      color: #fff;
+      font-size: 15px;
+      padding: 20px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+
+    #navbar a {
+      color: #fff;
+      text-decoration: none;
+      margin-right: 20px;
+      transition: all 0.3s ease;
+    }
+
+    #navbar a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      padding:12px;
+      border-radius: 5px;
+    }
+
+    #logo {
+      float: left;
+      margin-right: 40px;
+      color: #fff;
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    #content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: 20px;
+      margin-left: 55px;
+      color: #766fe7;
+    }
+
+    #content-box {
+      width: 91%; /* Added */
+      padding: 20px;
+      margin-top: 20px; /* Added */
+      border: 1px solid white; /* Added */
+      border-radius: 5px; /* Added */
+    }
+
+    #question-container {
+      width: 100%;
+      padding: 10px;
+      color: white;
+    }
+
+    h1 {
+      margin-top: 5%;
+      margin-bottom: 0px;
+      font-size: 45px;
+    }
+
+    h2 {
+      color: white;
+    }
+
+    p {
+      color: white;
+      margin-top: 0px;
+      font-size: 19px;
+    }
+
+    .options-container {
+      margin-top: 20px;
+    }
+
+    .options-container .option {
+        margin-bottom: 10px;
+    }
+
+    .options-form div {
+      margin-bottom: 10px;
+    }
+
+    .btn-container {
+      margin-top: 20px;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .btn-container button {
+      background-color: #766fe7;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 15px;
+      border: none;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+
+    .btn-container button:hover {
+      background-color: #594dc2;
+    }
+
+    #back-btn {
+      background-color: white;
+      color: black;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 15px;
+      border: none;
+      cursor: pointer;
+      position: absolute;
+      bottom: 4%;
+      left: 7%;
+    }
+
+    #next-btn {
+      background-color: white;
+      color: black;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 15px;
+      border: none;
+      cursor: pointer;
+      position: absolute;
+      bottom: 4%;
+      right: 7%;
+    }
+
+    #submit-btn {
+      background-color: white;
+      color: black;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 15px;
+      border: none;
+      cursor: pointer;
+      position: absolute;
+      bottom: 4%;
+      right: 7%;
+    }
+
+    .small-paragraph {
+      font-size: 15px;
+      color: gray;
+      margin-left: 10px;
+    }
+
+    #timer {
+      position: absolute;
+      top: 15%;
+      right: 5%;
+      transform: translateX(-50%);
+      background-color: rgb(17, 23, 34);
+      color: #766fe7;
+      font-weight: bold;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 25px;
+      overflow: hidden; 
+    }
+    #timer-icon {
+      margin-left: 5px;
+    }
+    @keyframes borderFade {
+  0% {
+    background: linear-gradient(to left, transparent, #4b43b6)
+                linear-gradient(to top, transparent, #4b43b6);
+  }
+  100% {
+    background: linear-gradient(to left, #4b43b6, transparent)
+    linear-gradient(to top, transparent, #4b43b6);
+  }
+}
+#timer::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  height: calc(90%);
+  width: 17px;
+  background: linear-gradient(to left, transparent, #4b43b6);
+}
+#timer::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  right: 30px;
+  height: 15px;
+  width: calc(100% + 20px);
+  background: linear-gradient(to top, transparent, #766fe7);
+}
+    @media screen and (max-width: 600px) {
+      /* Adjust the styles for mobile devices */
+
+      #content {
+        margin-left: 0px;
+        margin-right: 10px;
+      }
+
+      h1 {
+        margin-top: 10%;
+        font-size: 30px;
+        margin-left:15px;
+      }
+      #timer {
+      position: absolute;
+      top: 20%;
+      right: 0%;
+      transform: translateX(-50%);
+      background-color: rgb(17, 23, 34);
+      color: #766fe7;
+      font-weight: bold;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 22px;
+    }
+
+      #content-box {
+        width: 100%;
+        padding: 10px;
+        margin-top: 60px;
+        border: none;
+      }
+      #question-container {
+      width: 100%;
+      padding: 10px;
+      color: white;
+      font-size: 13px;
+    }
+
+      #back-btn,
+      #next-btn,
+      #submit-btn {
+        position: absolute;
+        margin-top: 10px;
+        width: 20%;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <div id="navbar">
+    <div id="logo">DEBSOC</div>
+    <a href="https://thedebatingsociety.com/">Home</a>
+    <a href="https://thedebatingsociety.com/community/">Community</a>
+    <a href="https://thedebatingsociety.com/membership/">Membership</a>
+  </div>
+
+  <div id="content">
+    <h1>Retention Test <span class="small-paragraph">MCQ based questions only</span></h1>
+    <div id="content-box">
+      <div id="question-container"></div>
+    </div>
+    <div class="btn-container">
+      <button id="back-btn">Back</button>
+      <button id="next-btn">Next</button>
+      <button id="submit-btn">Submit</button>
+      <div id="timer">
+        <i class="fas fa-clock"></i>
+        <span id="timer-text"></span>
+        <span id="timer-text-left">left</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const questions = [
+      {
+        question: "1. _______ is a large language model chatbot developed by OpenAI based on GPT-3.5",
+        options: ["Bard", "Chat GPT", "AlphaCode", "Synthesia"],
+        correctAnswer: "Chat GPT"
+      },
+      {
+        question: "2. DALL-E was named after?",
+        options: ["Salvador Dalí and Pixar's WALL-E", "Leonardo da Vinci and The Matrix's Trinity", "Vincent van Gogh and Star Wars' R2-D2", "Pablo Picasso and Disney's Frozen's Elsa"],
+        correctAnswer: "Salvador Dalí and Pixar's WALL-E"
+      },
+      {
+        question: "3. _______ created a Discord community with bots that can turn your text into images in less than a minute.",
+        options: ["PixelBot", "Artify", "Midjourney", "ImageMaster"],
+        correctAnswer: "Midjourney"
+      },
+      {
+        question: "4. _______ is a method for creating images from text prompts. It works by adding random noise to a set of training images, then learning how to remove noise to construct the desired image.",
+        options: ["PixelDreams", "Diffusion Model", "Text2ImageNet", "DeepImageSynth"],
+        correctAnswer: "Diffusion Model"
+      }
+    ];
+  
+    const questionContainer = document.getElementById("question-container");
+    const backButton = document.getElementById("back-btn");
+    const nextButton = document.getElementById("next-btn");
+    const submitButton = document.getElementById("submit-btn");
+    const timerElement = document.getElementById("timer");
+  
+    let currentQuestionIndex = 0;
+    let selectedAnswers = [];
+  
+    const totalTime = 100 * questions.length; // Total time in seconds
+    let timeRemaining = totalTime;
+    let timerInterval;
+  
+    function displayQuestion() {
+      const question = questions[currentQuestionIndex];
+  
+      let optionsHtml = "";
+      question.options.forEach((option, index) => {
+        optionsHtml += `
+          <div class="option">
+            <input type="radio" id="option${index}" name="answer" value="${option}">
+            <label for="option${index}">${option}</label>
+          </div>
+        `;
+      });
+  
+      questionContainer.innerHTML = `
+        <h2>${question.question}</h2>
+        <div class="options-container">
+          ${optionsHtml}
+        </div>
+      `;
+    }
+  
+    function selectAnswer() {
+      const selectedOption = document.querySelector('input[name="answer"]:checked');
+      if (selectedOption) {
+        const selectedValue = selectedOption.value;
+        selectedAnswers[currentQuestionIndex] = selectedValue;
+      }
+    }
+  
+    function showNextQuestion() {
+      selectAnswer();
+      currentQuestionIndex++;
+      if (currentQuestionIndex < questions.length) {
+        displayQuestion();
+        updateButtonVisibility();
+      } else {
+        showResults();
+      }
+    }
+  
+    function showPreviousQuestion() {
+      selectAnswer();
+      currentQuestionIndex--;
+      displayQuestion();
+      updateButtonVisibility();
+    }
+  
+    function showResults() {
+      selectAnswer();
+      let score = 0;
+      let resultsHtml = "";
+  
+      questions.forEach((question, index) => {
+        resultsHtml += `
+          <p>
+            ${question.question}<br>
+            <strong>Your Answer:</strong> ${selectedAnswers[index]}<br>
+            <strong>Correct Answer:</strong> ${question.correctAnswer}<br><br>
+          </p>
+        `;
+  
+        if (selectedAnswers[index] === question.correctAnswer) {
+          score++;
+        }
+      });
+  
+      const minutesTaken = Math.floor((totalTime - timeRemaining) / 60);
+      const secondsTaken = (totalTime - timeRemaining) % 60;
+  
+      resultsHtml += `<p><strong>Time Taken:</strong> ${minutesTaken} minutes ${secondsTaken} seconds</p>`;
+      resultsHtml += `<p><strong>Score:</strong> ${score} out of ${questions.length}</p>`;
+  
+      questionContainer.innerHTML = `
+        <h2>Results:</h2>
+        ${resultsHtml}
+      `;
+  
+      backButton.style.display = "none";
+      nextButton.style.display = "none";
+      submitButton.style.display = "none";
+      clearInterval(timerInterval);
+    }
+  
+    function updateButtonVisibility() {
+      if (currentQuestionIndex === 0) {
+        backButton.style.display = "none";
+      } else {
+        backButton.style.display = "block";
+      }
+  
+      if (currentQuestionIndex === questions.length - 1) {
+        nextButton.style.display = "none";
+        submitButton.style.display = "block";
+      } else {
+        nextButton.style.display = "block";
+        submitButton.style.display = "none";
+      }
+    }
+  
+    function updateTimer() {
+      const minutes = Math.floor(timeRemaining / 60);
+      const seconds = timeRemaining % 60;
+      timerElement.innerHTML = `${minutes}: ${seconds} left`;
+    }
+  
+    function startTimer() {
+      updateTimer();
+      timerInterval = setInterval(() => {
+        timeRemaining--;
+        updateTimer();
+  
+        if (timeRemaining <= 0) {
+          clearInterval(timerInterval);
+          showResults();
+        }
+      }, 1000);
+    }
+  
+    backButton.addEventListener("click", showPreviousQuestion);
+    nextButton.addEventListener("click", showNextQuestion);
+    submitButton.addEventListener("click", showResults);
+  
+    displayQuestion();
+    updateButtonVisibility();
+    startTimer();
+  </script>
+  
